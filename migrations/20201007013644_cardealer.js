@@ -6,7 +6,6 @@ exports.up = function(knex) {
     return knex.schema.createTable('cardealer',tbl =>{
         tbl.increments();
         tbl.text('VIN', 128)
-        .unique()
         .notNullable()
         .index();
 
@@ -19,10 +18,13 @@ exports.up = function(knex) {
         .index();
 
         tbl.integer('mileage').index()
+        // tbl.foreign('id').references('sales')
 
 
     })
+    
   };
+
   
   exports.down = function(knex) {
     //undoing that change 

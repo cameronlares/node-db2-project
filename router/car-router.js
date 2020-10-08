@@ -42,7 +42,7 @@ router.put('/:id', (req, res) => {
     const id = req.params.id
     //please validate data before calling the database
 
-    db("cardealer").where({ id: id }).update({changes}).then(count => {
+    db("cardealer").where({ id: id }).update(changes).then(count => {
         res.status(200).json({data: `Your Post has been updated" ${count}` })
     }) // another way of writing a where
     .catch(error => {
